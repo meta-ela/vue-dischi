@@ -10,17 +10,17 @@
 
 
 body {
-    background-color: $bodycolor!important;
+    background-color: $darkerblue!important;
     height: 100vh;
 }
 
 header {
-    background-color: $headercolor;
+    background-color: $darkblue;
     /* height: 60px; */
     padding: 1rem;
 }
 
 .spotify-logo {
     width: 50px;
-    fill: $logocolor;
+    fill: $green;
 }
