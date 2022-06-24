@@ -4,5 +4,23 @@
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
-    margin-top: 60px;
+    
+
+}
+
+
+body {
+    background-color: $bodycolor!important;
+    height: 100vh;
+}
+
+header {
+    background-color: $headercolor;
+    /* height: 60px; */
+    padding: 1rem;
+}
+
+.spotify-logo {
+    width: 50px;
+    fill: $logocolor;
 }
