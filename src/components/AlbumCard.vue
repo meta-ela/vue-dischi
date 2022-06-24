@@ -1,10 +1,10 @@
 <template>
     <div class="card">
         <div class="box_img">
-            <img class="w-100" :src="album.poster" :alt="`Album di ${album.author}`">
+            <img class="w-100 text-white" :src="album.poster" :alt="`Album di ${album.author}`">
         </div>
         <h4 class="text-white fw-bold text-uppercase">{{ album.title }}</h4>
-        <div>
+        <div class="mt-3">
             <h6>{{ album.author }}</h6>
             <h6>{{ album.year }}</h6>
         </div>

@@ -1,9 +1,7 @@
 <template>
     <div class="row row-cols-5 g-3">
         <div class="col" v-for="album in allAlbumList" :key="album.author">
-            <AlbumCard
-            :album="album"
-            ></AlbumCard>
+            <AlbumCard :album="album"></AlbumCard>
         </div>
     </div>
 </template>
@@ -25,7 +23,16 @@ export default  {
     methods: {
         fetchAlbumList() {
             axios.get(this.apiUrl).then((resp) => {
-                // API ha la risposta in "response"
+                /* 
+                la chiamata contiene:
+                response: {
+                    poster: String,
+                    title: String,
+                    author: String,
+                    genre: String,
+                    year: String,
+                }
+                */
                 this.allAlbumList = resp.data.response;
             });
         },
