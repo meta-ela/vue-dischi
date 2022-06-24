@@ -1,7 +1,9 @@
 <template>
-    <div class="row row-cols-5">
-        <div class="col">
-            <AlbumCard/>
+    <div class="row row-cols-5 g-3">
+        <div class="col" v-for="album in allAlbumList" :key="album.author">
+            <AlbumCard
+            :album="album"
+            ></AlbumCard>
         </div>
     </div>
 </template>

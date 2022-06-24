@@ -2,7 +2,7 @@
   <div id="app">
     <TheHeader/>
     <main>
-      <div class="container">
+      <div class="container py-5">
         <AlbumList/>
       </div>
     </main>

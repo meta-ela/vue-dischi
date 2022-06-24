@@ -1,5 +1,5 @@
 <template>
-    <header>
+    <header class="sticky-top">
         <div class="container-fluid">
             <div class="d-flex justify-content-between">
                 <div>
