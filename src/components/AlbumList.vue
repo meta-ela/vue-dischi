@@ -30,6 +30,9 @@ export default  {
             .get(this.apiUrl)
             .then((resp) => {
                 this.allAlbumList = resp.data.response;
+                // emit al padre App.vue
+                // all'$emit albumGenres si fa passare la lista genreList
+                this.$emit("albumGenres", this.genreList())
             })
             .catch(() => {
                 alert("L'operazione non è andata a buon fine. Errore Sistema.")
