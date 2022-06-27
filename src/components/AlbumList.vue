@@ -36,11 +36,24 @@ export default  {
                 this.allAlbumList = resp.data.response;
             });
         },
+        genreList() {
+            const list = [];
+
+            this.allAlbumList.forEach(album => {
+                if(!list.includes(album.genre)) {
+                    list.push(album.genre)
+                }
+            })
+
+            return list
+        }
     },
 
     mounted() {
         this.fetchAlbumList()
+        .catch(() => {
+            alert("L'operazione non è andato a buon fine. Errore Sistema.")
+        });
     },
-
 };
 </script>

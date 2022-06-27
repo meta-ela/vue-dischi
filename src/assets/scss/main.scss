@@ -1,5 +1,10 @@
+/* 
+Prima import delle mie variabili
+poi import di bootrtrap
+infine import di tutto il resto dei mie file
+*/
 @import"./variables";
-@import "./general";
-
 
 @import "~bootstrap/scss/bootstrap";
+
+@import "./general";
