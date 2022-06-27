@@ -12,8 +12,8 @@
                     <!-- $event tag di Vue che permette di far passare i dati e li inoltra
                     nel nuovo emit -->
                     <SearchBar 
-                    :genre-list="genreList"
-                    @searchGenre="$emit('searchGenre', $event)"
+                    :genre-list="genreList" @searchGenre="$emit('searchGenre', $event)"
+                    :author-list="authorList" @searchAuhtor="$emit('searchAuhtor', $event)"
                     ></SearchBar>
                 </div>
             </div>
@@ -30,6 +30,7 @@ export default {
     // aggiunto la proprs genreList per mantenere collegamento event
     props: {
         genreList: Array,
+        authorList: Array,
     }
 }
 </script>

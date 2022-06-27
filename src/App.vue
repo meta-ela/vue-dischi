@@ -2,12 +2,18 @@
   <div id="app">
     <!-- inoltrare alla prop :genre-list il risultato della lista
     la prop aggiorna automaticamente le modifiche effettuate nella lista-->
-    <TheHeader :genre-list="genreList" @searchGenre="onSearchGenre"></TheHeader>
+    <TheHeader 
+    :genre-list="genreList" @searchGenre="onSearchGenre"
+    :author-list="authorList" @searchAuhtor="onSearchAuthor"
+    ></TheHeader>
     <main class="overflow-auto">
       <div class="container py-5">
         <!-- si ascolta l'evento $emit albumGenres fatto in AlbumList.vue
         al cui interno ha il genreList definitivo  -->
-        <AlbumList @albumGenres="onAlbumGenre" :searched-genre="searchedGenre"></AlbumList>
+        <AlbumList 
+        @albumGenres="onAlbumGenre" :searched-genre="searchedGenre"
+        @albumAuthors="onAlbumAuthor" :searched-author="searchedAuthor"
+        ></AlbumList>
       </div>
     </main>
   </div>
@@ -31,6 +37,8 @@ export default {
       // di App.vue in cui bisogna leggerlo 
       genreList: [],
       searchedGenre: "",
+      authorList: [],
+      searchedAuthor: "",
     };
   },
 
@@ -43,6 +51,13 @@ export default {
     },
     onSearchGenre(genre) {
       this.searchedGenre = genre;
+    },
+    onAlbumAuthor(authorList) {
+      console.log("Lista autori: ", authorList)
+      this.authorList = authorList
+    },
+    onSearchAuthor(auhtor) {
+      this.searchedAuthor = auhtor
     },
   }
 }

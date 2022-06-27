@@ -1,13 +1,19 @@
 <template>
     <div class="d-flex">
         <div class="input-group">
+            <select type="text" class="form-select" v-model="author">
+                <option value="">Tutti gli Artisti</option>
+                <option 
+                v-for="(author, i) in authorList" :key="i" :value="author"
+                >{{ author }}</option>
+            </select>
+
             <select type="text" class="form-select" v-model="genre">
                 <option value="">Tutti i generi</option>
                 <!-- v-for per far passare la genreList  -->
                 <option 
-                v-for="(genre, i) in genreList"
-                :key="i"
-                :value="genre">{{ genre }}</option>
+                v-for="(genre, i) in genreList" :key="i" :value="genre"
+                >{{ genre }}</option>
             </select>
             <button class="btn " @click="onSearchClick">Cerca</button>
         </div>
@@ -21,11 +27,13 @@ export default {
     // ricevere alla SearchBar.vue la lista
     props: {
         genreList: Array,
+        authorList: Array,
     },
 
     data() {
         return {
             genre: "",
+            auhtor: "",
         }
     },
     // far partire $emit al contrario per raggiungere TheHeader.vue
@@ -33,6 +41,7 @@ export default {
     methods: {
         onSearchClick() {
             this.$emit("searchGenre", this.genre);
+            this.$emit("searchAuhtor", this.auhtor);
         }
     }
 }
