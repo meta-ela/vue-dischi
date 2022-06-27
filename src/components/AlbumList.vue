@@ -1,6 +1,6 @@
 <template>
     <div class="row row-cols-5 g-3">
-        <div class="col" v-for="album in allAlbumList" :key="album.author">
+        <div class="col" v-for="album in filteredAlbums" :key="album.author">
             <AlbumCard :album="album"></AlbumCard>
         </div>
     </div>
@@ -13,6 +13,10 @@ import AlbumCard from "./AlbumCard.vue";
 export default  {
     name: "AlbumList",
     components: { AlbumCard },
+    props: {
+        searchedGenre: String,
+    },
+
     data() {
         return {
             apiUrl: "https://flynn.boolean.careers/exercises/api/array/music",
@@ -22,6 +26,17 @@ export default  {
              */
             allAlbumList: [],
         };
+    },
+
+    computed: {
+        filteredAlbums() {
+            if(!this.searchedGenre) {
+                return this.allAlbumList;
+            }
+            return this.allAlbumList.filter((album) => {
+                return album.genre === this.searchedGenre
+            })
+        }
     },
 
     methods: {

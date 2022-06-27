@@ -1,17 +1,45 @@
 <template>
     <div class="d-flex">
         <div class="input-group">
-            <select type="text" class="form-select">
-                <option value="">Scegli un genere</option>
+            <select type="text" class="form-select" v-model="genre">
+                <option value="">Tutti i generi</option>
+                <!-- v-for per far passare la genreList  -->
+                <option 
+                v-for="(genre, i) in genreList"
+                :key="i"
+                :value="genre">{{ genre }}</option>
             </select>
-            <button class="btn ">Cerca</button>
+            <button class="btn " @click="onSearchClick">Cerca</button>
         </div>
     </div>
 </template>
 
-<script setup>
+<script>
+
+export default {
+    // stesso passaggio dati di TheHeader.vue per far 
+    // ricevere alla SearchBar.vue la lista
+    props: {
+        genreList: Array,
+    },
+
+    data() {
+        return {
+            genre: "",
+        }
+    },
+    // far partire $emit al contrario per raggiungere TheHeader.vue
+    // TheHeader.vue a sua volta deve raggiungere App.vue
+    methods: {
+        onSearchClick() {
+            this.$emit("searchGenre", this.genre);
+        }
+    }
+}
 
 </script>
+
+
 
 <style lang="scss" scoped>
 
