@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <TheHeader/>
-    <main>
+    <main class="overflow-auto">
       <div class="container py-5">
         <AlbumList/>
       </div>

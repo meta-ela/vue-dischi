@@ -12,20 +12,17 @@
 </template>
 
 <script>
-/* 
-la chiamata contiene:
-response: {
-    poster: String,
-    title: String,
-    author: String,
-    genre: String,
-    year: String,
-}
-*/
+
 export default  {
     name: "AlbumCard",
     props: {
-        album: Object
+        /**
+         * @type { {poster: string, title: string, author: string, genre: string, year: string,} }
+         */
+        album: {
+            type: Object,
+            required: true,
+        },
     },
 }
 
@@ -45,4 +42,6 @@ export default  {
 h6 {
     color: $grey;
 }
+
+
 </style>

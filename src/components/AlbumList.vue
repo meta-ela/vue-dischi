@@ -16,24 +16,23 @@ export default  {
     data() {
         return {
             apiUrl: "https://flynn.boolean.careers/exercises/api/array/music",
+
+            /**
+             * @type { {poster: string, title: string, author: string, genre: string, year: string,}[] }
+             */
             allAlbumList: [],
         };
     },
 
     methods: {
         fetchAlbumList() {
-            axios.get(this.apiUrl).then((resp) => {
-                /* 
-                la chiamata contiene:
-                response: {
-                    poster: String,
-                    title: String,
-                    author: String,
-                    genre: String,
-                    year: String,
-                }
-                */
+            axios
+            .get(this.apiUrl)
+            .then((resp) => {
                 this.allAlbumList = resp.data.response;
+            })
+            .catch(() => {
+                alert("L'operazione non è andata a buon fine. Errore Sistema.")
             });
         },
         genreList() {
@@ -51,9 +50,6 @@ export default  {
 
     mounted() {
         this.fetchAlbumList()
-        .catch(() => {
-            alert("L'operazione non è andato a buon fine. Errore Sistema.")
-        });
     },
 };
 </script>
