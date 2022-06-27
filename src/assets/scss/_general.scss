@@ -6,7 +6,6 @@
     color: #2c3e50;
     height: 100vh;
     background-color: $darkerblue!important;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
 }
@@ -15,6 +14,7 @@ header {
     background-color: $darkblue;
     padding: 1rem;
     border-bottom: 10px solid $darkerblue;
+    flex-shrink: 0;
 }
 
 .spotify-logo {

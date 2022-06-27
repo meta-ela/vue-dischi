@@ -1,7 +1,11 @@
 <template>
     <div class="card">
         <div class="box_img">
-            <img class="w-100 text-white" :src="album.poster" :alt="`Album di ${album.author}`">
+            <img class="w-100 text-white" 
+            :src="albumPoster" 
+            :alt="`Album di ${album.author}`"
+            :error="imageError">
+            <!-- :src="album.poster"  -->
         </div>
         <h4 class="text-white fw-bold text-uppercase">{{ album.title }}</h4>
         <div class="mt-3">
@@ -24,6 +28,19 @@ export default  {
             required: true,
         },
     },
+    data() {
+        return {
+            albumPoster: "",
+        }
+    },
+    methods: {
+        imageError() {
+            this.albumPoster = "/img/image_error.png";
+        },
+    },
+    mounted() {
+        this.albumPoster = this.album.poster;
+    }
 }
 
 </script>
